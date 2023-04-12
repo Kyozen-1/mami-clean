@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\LandingPage\LandingPageBeranda;
 use Illuminate\Support\Facades\Mail;
+use GuzzleHttp\Client as GuzzleHttpClient;
+use Carbon\Carbon;
 use App\Models\Layanan;
 use App\Models\ServiceQuality;
 use App\Models\PivotFaqServiceQuality;
@@ -71,7 +73,41 @@ class HomeController extends Controller
 
     public function proyek()
     {
-        return view('landing-page.proyek');
+        $guzzleClient = new GuzzleHttpClient();
+
+        $get_produk = $guzzleClient->get(env('RAZEN_URL').'api/product/mami-clean/product');
+        $produks = json_decode($get_produk->getBody())->data;
+
+        return view('landing-page.proyek', [
+            'produks' => $produks
+        ]);
+    }
+
+    public function proyek_detail($id)
+    {
+        $guzzleClient = new GuzzleHttpClient();
+
+        $get_produk = $guzzleClient->get(env('RAZEN_URL').'api/product/mami-clean/product/detail/'.$id);
+        $produk = json_decode($get_produk->getBody())->data;
+
+        $get_related_produk = $guzzleClient->get(env('RAZEN_URL').'api/product/mami-clean/product/related/'.$id);
+        $data_produk_terkait = [];
+        if(json_decode($get_related_produk->getBody()))
+        {
+            $data_produk_terkait = [
+                'status' => 'ada',
+                'data' => json_decode($get_related_produk->getBody())->data
+            ];
+        } else {
+            $data_produk_terkait = [
+                'status' => 'tidak_ada',
+                'data' => ''
+            ];
+        }
+        return view('landing-page.proyek-detail', [
+            'produk' => $produk,
+            'data_produk_terkait' => $data_produk_terkait
+        ]);
     }
 
     public function blog()

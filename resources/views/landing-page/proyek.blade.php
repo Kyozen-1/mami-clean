@@ -35,7 +35,7 @@
         <!-- shop-area -->
         <section class="shop-area pt-130 pb-130">
             <div class="container">
-                <div class="shop-top-wrap mb-50">
+                {{-- <div class="shop-top-wrap mb-50">
                     <div class="row align-items-center">
                         <div class="col-lg-6 col-sm-6">
                             <div class="shop-showing-result">
@@ -54,217 +54,33 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> --}}
                 <div class="shop-item-wrap">
                     <div class="row row-cols-xl-4 row-cols-lg-3 row-cols-md-2 row-cols-sm-2 row-cols-1">
-                        <div class="col">
-                            <div class="shop-item">
-                                <div class="shop-thumb">
-                                    <a href="shop-details.html"><img src="{{ asset('clentac/assets/img/shop/shop_img01.png') }}" alt=""></a>
-                                    <div class="shop-action">
-                                        <a href="shop-details.html"><i class="fas fa-shopping-cart"></i></a>
-                                        <a href="shop-details.html"><i class="fas fa-heart"></i></a>
-                                        <a href="shop-details.html"><i class="fas fa-eye"></i></a>
+                        @foreach ($produks as $produk)
+                            <div class="col">
+                                <div class="shop-item">
+                                    <div class="shop-thumb">
+                                        <a href="{{ route('proyek.detail', ['id'=>$produk->id]) }}">
+                                            <img src="{{ env('RAZEN_URL') }}storage/{{json_decode($produk->gambar)[0]}}" alt="">
+                                        </a>
+                                        <div class="shop-action">
+                                            <a href="{{preg_replace('#/+#','/',env('RAZEN_URL').$produk->link)}}"><i class="fas fa-shopping-cart"></i></a>
+                                            <a href="{{ route('proyek.detail', ['id'=>$produk->id]) }}"><i class="fas fa-eye"></i></a>
+                                        </div>
+                                    </div>
+                                    <div class="shop-content">
+                                        <a href="{{env('RAZEN_URL')}}product-categories/{{strtolower($produk->kategori_produk[0])}}" class="tag">{{$produk->kategori_produk[0]}}</a>
+                                        <h2 class="title"><a href="{{ route('proyek.detail', ['id'=>$produk->id]) }}">{{$produk->nama}}</a></h2>
+                                        <h3 class="price">Rp. {{number_format($produk->harga, '2',',', '.')}}</h3>
                                     </div>
                                 </div>
-                                <div class="shop-content">
-                                    <a href="shop.html" class="tag">Plumbing</a>
-                                    <h2 class="title"><a href="shop-details.html">Biovert Cleaner</a></h2>
-                                    <h3 class="price">$19.99</h3>
-                                </div>
                             </div>
-                        </div>
-                        <div class="col">
-                            <div class="shop-item">
-                                <div class="shop-thumb">
-                                    <a href="shop-details.html"><img src="{{ asset('clentac/assets/img/shop/shop_img02.png') }}" alt=""></a>
-                                    <div class="shop-action">
-                                        <a href="shop-details.html"><i class="fas fa-shopping-cart"></i></a>
-                                        <a href="shop-details.html"><i class="fas fa-heart"></i></a>
-                                        <a href="shop-details.html"><i class="fas fa-eye"></i></a>
-                                    </div>
-                                </div>
-                                <div class="shop-content">
-                                    <a href="shop.html" class="tag">Plumbing</a>
-                                    <h2 class="title"><a href="shop-details.html">Magic Spin Mop</a></h2>
-                                    <h3 class="price">$16.00</h3>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="shop-item">
-                                <div class="shop-thumb">
-                                    <a href="shop-details.html"><img src="{{ asset('clentac/assets/img/shop/shop_img03.png') }}" alt=""></a>
-                                    <div class="shop-action">
-                                        <a href="shop-details.html"><i class="fas fa-shopping-cart"></i></a>
-                                        <a href="shop-details.html"><i class="fas fa-heart"></i></a>
-                                        <a href="shop-details.html"><i class="fas fa-eye"></i></a>
-                                    </div>
-                                </div>
-                                <div class="shop-content">
-                                    <a href="shop.html" class="tag">Plumbing</a>
-                                    <h2 class="title"><a href="shop-details.html">Biovert Cleaner</a></h2>
-                                    <h3 class="price">$32.00</h3>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="shop-item">
-                                <div class="shop-thumb">
-                                    <a href="shop-details.html"><img src="{{ asset('clentac/assets/img/shop/shop_img04.png') }}" alt=""></a>
-                                    <div class="shop-action">
-                                        <a href="shop-details.html"><i class="fas fa-shopping-cart"></i></a>
-                                        <a href="shop-details.html"><i class="fas fa-heart"></i></a>
-                                        <a href="shop-details.html"><i class="fas fa-eye"></i></a>
-                                    </div>
-                                </div>
-                                <div class="shop-content">
-                                    <a href="shop.html" class="tag">Plumbing</a>
-                                    <h2 class="title"><a href="shop-details.html">Clarke Machines</a></h2>
-                                    <h3 class="price">$28.50</h3>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="shop-item">
-                                <div class="shop-thumb">
-                                    <a href="shop-details.html"><img src="{{ asset('clentac/assets/img/shop/shop_img05.png') }}" alt=""></a>
-                                    <div class="shop-action">
-                                        <a href="shop-details.html"><i class="fas fa-shopping-cart"></i></a>
-                                        <a href="shop-details.html"><i class="fas fa-heart"></i></a>
-                                        <a href="shop-details.html"><i class="fas fa-eye"></i></a>
-                                    </div>
-                                </div>
-                                <div class="shop-content">
-                                    <a href="shop.html" class="tag">Plumbing</a>
-                                    <h2 class="title"><a href="shop-details.html">Clarke CFP Floor</a></h2>
-                                    <h3 class="price">$46.00</h3>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="shop-item">
-                                <div class="shop-thumb">
-                                    <a href="shop-details.html"><img src="{{ asset('clentac/assets/img/shop/shop_img06.png') }}" alt=""></a>
-                                    <div class="shop-action">
-                                        <a href="shop-details.html"><i class="fas fa-shopping-cart"></i></a>
-                                        <a href="shop-details.html"><i class="fas fa-heart"></i></a>
-                                        <a href="shop-details.html"><i class="fas fa-eye"></i></a>
-                                    </div>
-                                </div>
-                                <div class="shop-content">
-                                    <a href="shop.html" class="tag">Plumbing</a>
-                                    <h2 class="title"><a href="shop-details.html">Cillit Bang</a></h2>
-                                    <h3 class="price">$12.00</h3>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="shop-item">
-                                <div class="shop-thumb">
-                                    <a href="shop-details.html"><img src="{{ asset('clentac/assets/img/shop/shop_img07.png') }}" alt=""></a>
-                                    <div class="shop-action">
-                                        <a href="shop-details.html"><i class="fas fa-shopping-cart"></i></a>
-                                        <a href="shop-details.html"><i class="fas fa-heart"></i></a>
-                                        <a href="shop-details.html"><i class="fas fa-eye"></i></a>
-                                    </div>
-                                </div>
-                                <div class="shop-content">
-                                    <a href="shop.html" class="tag">Plumbing</a>
-                                    <h2 class="title"><a href="shop-details.html">Sensitive Skin</a></h2>
-                                    <h3 class="price">$14.00</h3>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="shop-item">
-                                <div class="shop-thumb">
-                                    <a href="shop-details.html"><img src="{{ asset('clentac/assets/img/shop/shop_img08.png') }}" alt=""></a>
-                                    <div class="shop-action">
-                                        <a href="shop-details.html"><i class="fas fa-shopping-cart"></i></a>
-                                        <a href="shop-details.html"><i class="fas fa-heart"></i></a>
-                                        <a href="shop-details.html"><i class="fas fa-eye"></i></a>
-                                    </div>
-                                </div>
-                                <div class="shop-content">
-                                    <a href="shop.html" class="tag">Plumbing</a>
-                                    <h2 class="title"><a href="shop-details.html">Clean Energy</a></h2>
-                                    <h3 class="price">$47.99</h3>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="shop-item">
-                                <div class="shop-thumb">
-                                    <a href="shop-details.html"><img src="{{ asset('clentac/assets/img/shop/shop_img09.png') }}" alt=""></a>
-                                    <div class="shop-action">
-                                        <a href="shop-details.html"><i class="fas fa-shopping-cart"></i></a>
-                                        <a href="shop-details.html"><i class="fas fa-heart"></i></a>
-                                        <a href="shop-details.html"><i class="fas fa-eye"></i></a>
-                                    </div>
-                                </div>
-                                <div class="shop-content">
-                                    <a href="shop.html" class="tag">Plumbing</a>
-                                    <h2 class="title"><a href="shop-details.html">Biovert Cleaner</a></h2>
-                                    <h3 class="price">$19.99</h3>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="shop-item">
-                                <div class="shop-thumb">
-                                    <a href="shop-details.html"><img src="{{ asset('clentac/assets/img/shop/shop_img10.png') }}" alt=""></a>
-                                    <div class="shop-action">
-                                        <a href="shop-details.html"><i class="fas fa-shopping-cart"></i></a>
-                                        <a href="shop-details.html"><i class="fas fa-heart"></i></a>
-                                        <a href="shop-details.html"><i class="fas fa-eye"></i></a>
-                                    </div>
-                                </div>
-                                <div class="shop-content">
-                                    <a href="shop.html" class="tag">Plumbing</a>
-                                    <h2 class="title"><a href="shop-details.html">Magic Spin Mop</a></h2>
-                                    <h3 class="price">$16.00</h3>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="shop-item">
-                                <div class="shop-thumb">
-                                    <a href="shop-details.html"><img src="{{ asset('clentac/assets/img/shop/shop_img11.png') }}" alt=""></a>
-                                    <div class="shop-action">
-                                        <a href="shop-details.html"><i class="fas fa-shopping-cart"></i></a>
-                                        <a href="shop-details.html"><i class="fas fa-heart"></i></a>
-                                        <a href="shop-details.html"><i class="fas fa-eye"></i></a>
-                                    </div>
-                                </div>
-                                <div class="shop-content">
-                                    <a href="shop.html" class="tag">Plumbing</a>
-                                    <h2 class="title"><a href="shop-details.html">Biovert Cleaner</a></h2>
-                                    <h3 class="price">$32.00</h3>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="shop-item">
-                                <div class="shop-thumb">
-                                    <a href="shop-details.html"><img src="{{ asset('clentac/assets/img/shop/shop_img12.png') }}" alt=""></a>
-                                    <div class="shop-action">
-                                        <a href="shop-details.html"><i class="fas fa-shopping-cart"></i></a>
-                                        <a href="shop-details.html"><i class="fas fa-heart"></i></a>
-                                        <a href="shop-details.html"><i class="fas fa-eye"></i></a>
-                                    </div>
-                                </div>
-                                <div class="shop-content">
-                                    <a href="shop.html" class="tag">Plumbing</a>
-                                    <h2 class="title"><a href="shop-details.html">Clarke Machines</a></h2>
-                                    <h3 class="price">$28.50</h3>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
-                    <div class="autoload-btn text-center mt-30">
+                    {{-- <div class="autoload-btn text-center mt-30">
                         <a href="#!" class="btn">Auto load</a>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </section>

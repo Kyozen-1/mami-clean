@@ -22,6 +22,7 @@ Route::get('/perusahaan','LandingPage\HomeController@perusahaan')->name('perusah
 Route::get('/layanan','LandingPage\HomeController@layanan')->name('layanan');
 Route::get('/layanan/detail/{id}','LandingPage\HomeController@layanan_detail')->name('layanan.detail');
 Route::get('/proyek','LandingPage\HomeController@proyek')->name('proyek');
+Route::get('/proyek/detail/{id}','LandingPage\HomeController@proyek_detail')->name('proyek.detail');
 Route::get('/blog','LandingPage\HomeController@blog')->name('blog');
 Route::get('/kontak','LandingPage\HomeController@kontak')->name('kontak');
 Route::post('/kontak-kami','LandingPage\HomeController@kontak_kami')->name('kontak-kami');
