@@ -1,5 +1,5 @@
 @extends('landing-page.layouts.app')
-@section('title', 'Mami Clean | Proyek')
+@section('title', 'Mami Clean | Produk')
 
 @section('content')
     @php
@@ -18,11 +18,11 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="breadcrumb-content">
-                            <h2 class="title">Proyek</h2>
+                            <h2 class="title">Produk</h2>
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="{{ route('beranda') }}">Beranda</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">Proyek</li>
+                                    <li class="breadcrumb-item active" aria-current="page">Produk</li>
                                 </ol>
                             </nav>
                         </div>

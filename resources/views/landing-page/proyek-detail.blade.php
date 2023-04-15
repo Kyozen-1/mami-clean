@@ -1,5 +1,5 @@
 @extends('landing-page.layouts.app')
-@section('title', 'Mami Clean | Proyek | Detail')
+@section('title', 'Mami Clean | Produk | Detail')
 
 @section('content')
 @php

@@ -99,7 +99,7 @@
                                     <li><a href="{{ route('layanan') }}">Layanan</a></li>
                                     <li><a href="https://shop.razen.co.id/stores/mami-clean" target="blank">E-Commerce</a></li>
                                     <li><a href="#">E-Learning</a></li>
-                                    <li><a href="{{ route('proyek') }}">Proyek</a></li>
+                                    <li><a href="{{ route('proyek') }}">Produk</a></li>
                                     <li><a href="#">Blog</a></li>
                                     <li><a href="{{ route('kontak') }}">Kontak</a></li>
                                 </ul>
